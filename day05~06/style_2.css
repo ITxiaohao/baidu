@@ -1,0 +1,38 @@
+dt {
+    font-weight: 700
+}
+/* 初始化 dd 的外边距 */
+dd {  
+    margin: 0;
+}
+
+.header {
+    float: left;
+    text-align: center;
+    padding-top: 20px;
+    width: 20%;
+    min-height: 500px;
+    background: #66a4fa;
+    color: #fff;
+}
+
+/* 当我们想要用 float 浮动布局，width：80%时，如果加了padding或者margin或者border都会使得页面超出宽度，所以要用box-sizing：border-box，使得总宽度就是80%，而不是content层的宽度为80% */
+.main {
+    float: left;
+    width: 80%;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.item-list dt,
+.item-list dd{
+    display: inline-block
+}
+
+.item-list dd + dt {
+    margin-left: 25px;
+}
+
+.item-list dt {
+    margin-right: 5px;
+}

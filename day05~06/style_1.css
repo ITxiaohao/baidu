@@ -1,0 +1,20 @@
+dt {
+    font-weight: 700
+}
+/* 初始化 dd 的外边距 */
+dd {  
+    margin: 0;
+}
+
+.item-list dt,
+.item-list dd{
+    display: inline-block
+}
+
+.item-list dd + dt {
+    margin-left: 25px;
+}
+
+.item-list dt {
+    margin-right: 5px;
+}
