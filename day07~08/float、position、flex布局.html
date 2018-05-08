@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container-3 {
+            padding: 0 210px;
+        }
+        .container-3:after {
+            content: " ";
+            display: block;
+            height: 0;
+            line-height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .left-3 {
+            float: left;
+            margin-left: -210px;
+            width: 200px;
+        }
+
+        .conter-3 {
+            float: left;
+            width: 100%;
+        }
+
+        .right-3 {
+            margin-right: -210px;
+            float: right;
+            width: 200px;
+        }
+
+</style>
+    </style>
+</head>
+<body style="margin: 0">
+
+
+    <h1>float实现两栏布局,左侧占30%宽度，右侧占70%宽度</h1>
+    <div class="container" style="width: 100%;height: 50px;">
+        <div class="left" style="float: left;width: 30%;background-color: red;">
+            width:30%
+        </div>
+        <div class="right" style="float: left;width: 70%;background-color: peru">
+            width:70%            
+        </div>
+    </div>
+
+
+    <hr>
+    <h1>float实现两栏布局,左侧固定宽度,右侧根据浏览器宽度进行自适应变化</h1>
+    <div class="container" style="width: 100%;height:50px;overflow: auto;">
+        <div class="left" style="float: left;
+                                 width: 100px;
+                                 background-color: red;
+                                 box-sizing: border-box;">
+            width:100px;
+        </div>
+        <div class="right" style="box-sizing: border-box;
+                                  margin-left: 100px;
+                                  background-color: peru;
+                                  text-align: center">
+            <span>重点使用了 margin-left , 宽度与左侧固定宽度要一样，还要使用 box-sizing:border-box; 不让margin-left改变总宽度</span>         
+        </div>
+    </div>
+
+
+    <hr>
+    <h1>float实现一个两栏布局，右侧固定宽度，左侧根据浏览器宽度进行自适应变化</h1>
+    <div class="container" style="width: 100%;height: 50px;overflow: hidden; ">
+            <div class="left" style="float: right;
+                                     width: 100px;
+                                     background-color: red;
+                                     box-sizing: border-box;">
+            width:100px;
+            </div>
+            <div class="right" style="box-sizing: border-box;
+                                      margin-right: 100px;
+                                      background-color: peru;
+                                      text-align: center">
+            <span>将左侧设置为float: right;</span>         
+            </div>
+    </div>
+
+
+    <hr>
+    <h1>float实现一个三栏布局，左侧固定宽度，右侧固定宽度，中间部分宽度随浏览器宽度变化而自适应变化</h1>
+    <div class="container-3" >
+            <div class="left-3">左侧</div>
+            <div class="conter-3">中间自适应</div>
+            <div class="right-3"><span>右侧</span></div>
+    </div>
+
+    <!-- <div class="layout">
+            <aside class="layout__aside layout__aside--left">左侧边栏宽度固定</aside>
+            <div class="layout__main">主内容栏宽度自适应</div>
+            <aside class="layout__aside layout__aside--right">右侧边栏宽度固定</aside>
+        </div> -->
+</body>
+</html>
