@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        .container-3 {
-            padding: 0 210px;
+        .container-4 {
+            padding: 0 200px;
         }
-        .container-3:after {
-            content: " ";
+        .container-4:after {
+            content: "";
             display: block;
             height: 0;
             line-height: 0;
@@ -18,19 +18,20 @@
             visibility: hidden;
         }
 
-        .left-3 {
+        .left-4 {
             float: left;
-            margin-left: -210px;
+            margin-left: -200px;
             width: 200px;
         }
 
-        .conter-3 {
+        .conter-4 {
             float: left;
             width: 100%;
+            background: red;
         }
 
-        .right-3 {
-            margin-right: -210px;
+        .right-4 {
+            margin-right: -200px;
             float: right;
             width: 200px;
         }
@@ -87,19 +88,109 @@
             </div>
     </div>
 
-
     <hr>
     <h1>float实现一个三栏布局，左侧固定宽度，右侧固定宽度，中间部分宽度随浏览器宽度变化而自适应变化</h1>
-    <div class="container-3" >
-            <div class="left-3">左侧</div>
-            <div class="conter-3">中间自适应</div>
-            <div class="right-3"><span>右侧</span></div>
+    <div class="container-4" >
+            <div class="left-4">左侧</div>
+            <div class="conter-4">中间</div>
+            <div class="right-4"><span>右侧</span></div>
     </div>
 
-    <!-- <div class="layout">
-            <aside class="layout__aside layout__aside--left">左侧边栏宽度固定</aside>
-            <div class="layout__main">主内容栏宽度自适应</div>
-            <aside class="layout__aside layout__aside--right">右侧边栏宽度固定</aside>
-        </div> -->
+    <hr>
+    <h1>float实现一个三栏布局，左侧固定宽度，中间固定宽度，右侧根据浏览器宽度变化而自适应变化</h1>
+    <div class="container-5" style="overflow: auto;padding-left: 200px;">
+            <div class="left-5" style="float: left;width: 100px;margin-left: -200px">左侧</div>
+            <div class="conter-5" style="float: left;width: 100px;margin-left: -100px">中间</div>
+            <div class="right-5"  style="float: left;width: 100%;margin-right: -200px;box-sizing: border-box;background: red"><span>右侧</span></div>
+    </div>
+    <p>主要是在container使用overflow:auto和padding-righ:200px;(padding-right的尺寸是根据左侧和中间固定宽度的总和,这里我给左侧和中间都固定了宽度为100px;所以这里的padding要写200)</p>
+    <p>left、content、right都要float:left浮动，在左侧加上margin-left: -200px;(这样能保证它在最左侧),在中间加上margin-left:-100,在right加上margin-right：-200px;为什么是-200呢，和父元素padding的值必须要对应</p>
+    <hr>
+
+    <h1>position实现两栏布局,左侧占30%宽度，右侧占70%宽度</h1>
+    <div class="container-6" style="position: relative;">
+        <div class="left-6" style="position: relative;width: 30%;display: inline-block">左侧</div>
+        <div class="right-6"  style="position: absolute;width: 70%;display: inline-block;background: red">右侧</div>
+    </div>
+    <p>左侧position:relative,右侧position:absolute</p>
+    <hr>
+    
+    <h1>position实现两栏布局,左侧固定宽度,右侧根据浏览器宽度进行自适应变化</h1>
+    <div class="container-7" style="position: relative;">
+        <div class="left-7" style="position: absolute;top:0;left:0;width: 100px;">左侧</div>
+        <div class="right-7"  style="margin-left:100px;background: red">右侧</div>
+    </div>
+    <p>外部container使用position:relative左侧position:absolute,width:100px;top:0;left:0;,右侧margin-left=100px;</p>
+    <hr>
+
+    <h1>position实现一个两栏布局，右侧固定宽度，左侧根据浏览器宽度进行自适应变化</h1>
+    <div class="container-8" style="position: relative;">
+        <div class="left-8" style="margin-right:100px;top:0;left:0;">左侧</div>
+        <div class="right-8"  style="position: absolute;right: 0;bottom: 0;width:100px;background: red">右侧</div>
+    </div>
+    <p>外部 container 使用 position:relative 左侧 margin-right:100px;top:0;left:0; 右侧 position: absolute;right: 0;bottom: 0;width:100px;</p>
+    <hr>
+
+    <h1>position实现一个三栏布局，左侧固定宽度，右侧固定宽度，中间部分宽度随浏览器宽度变化而自适应变化</h1>
+    <div class="container-9" style="position: relative;">
+        <div class="left-9" style="position: absolute;width:100px;top:0;left:0;">左侧</div>
+        <div class="left-9" style="margin:0 100px;top:0;bottom:0;background: red">中间</div>
+        <div class="right-9"  style="position: absolute;right: 0;bottom: 0;width:100px;">右侧</div>
+    </div>
+    <p>外部 container 使用 position:relative 左侧 position: absolute;width:100px;top:0;left:0; 中间： margin:0 100px;top:0;bottom:0; ,右侧 position: absolute;right: 0;bottom: 0;width:100px;</p>
+    <hr>
+
+
+    <h1>position实现一个三栏布局，左侧固定宽度，中间固定宽度，右侧根据浏览器宽度变化而自适应变化</h1>
+    <div class="container-10" style="position: relative;">
+        <div class="left-10" style="position: absolute;width:100px;top:0;left:0;">左侧</div>
+        <div class="left-10" style="position: absolute;width:100px;margin-left:100px;top:0;bottom:0;">中间</div>
+        <div class="right-10"  style="margin-left:200px;bottom: 0;background: red">右侧</div>
+    </div>
+    <p>外部container使用position:relative左侧position:absolute,width:100px;top:0;left:0;,右侧margin-left=100px;</p>
+    <hr>
+
+
+    <h1>flex实现两栏布局,左侧占30%宽度，右侧占70%宽度</h1>
+    <div class="container-11" style="display: flex;">
+        <div class="left-11" style="width: 30%">左侧</div>
+        <div class="right-11"  style="width: 70%;background: red">右侧</div>
+    </div>
+    <p>外部container使用 display: flex</p>
+    <hr>
+    
+    <h1>flex实现两栏布局,左侧固定宽度,右侧根据浏览器宽度进行自适应变化</h1>
+    <div class="container-12" style="display: flex;">
+        <div class="left-12" style="width: 100px;">左侧</div>
+        <div class="right-12"  style="width:100%;background: red">右侧</div>
+    </div>
+    <p>外部container使用 display: flex , 左侧 width:100px;右侧　width:100%</p>
+    <hr>
+
+    <h1>flex实现一个两栏布局，右侧固定宽度，左侧根据浏览器宽度进行自适应变化</h1>
+    <div class="container-13" style="display: flex;">
+        <div class="left-13" style="width: 100%;">左侧</div>
+        <div class="right-13"  style="width:100px;background: red">右侧</div>
+    </div>
+    <p>外部container使用 display: flex , 左侧 width:100%; 右侧　width:100px</p>
+    <hr>
+
+    <h1>flex实现一个三栏布局，左侧固定宽度，右侧固定宽度，中间部分宽度随浏览器宽度变化而自适应变化</h1>
+    <div class="container-14" style="display: flex;">
+        <div class="left-14" style="width: 100px;">左侧</div>
+        <div class="left-14" style="width: 100%;background: red">中间</div>
+        <div class="right-14"  style="width: 100px;">右侧</div>
+    </div>
+    <p>外部container使用 display: flex , 左侧 width:100px; 中间 width: 100% 右侧　width:100px</p>
+    <hr>
+
+    <h1>flex实现一个三栏布局，左侧固定宽度，中间固定宽度，右侧根据浏览器宽度变化而自适应变化</h1>
+    <div class="container-15" style="display: flex;">
+        <div class="left-15" style="width: 100px;">左侧</div>
+        <div class="left-15" style="width: 100px;">中间</div>
+        <div class="right-15"  style="width: 100%;background: red">右侧</div>
+    </div>
+    <p>外部container使用 display: flex , 左侧 width:100%; 右侧　width:100px</p>
+    <hr>
 </body>
 </html>
